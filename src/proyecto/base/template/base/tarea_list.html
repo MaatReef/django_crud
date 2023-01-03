@@ -1,3 +1,11 @@
+{% if request.user.is_authenticated %}
+    <p>{{request.user}}</p> 
+    <a href="{% url 'logout' %}">Salir</a>
+{% else %}
+    <a href="{% url 'login' %}">Ingresar</a>
+{% endif %}
+<hr>
+
 <h1>Lista de Pendientes</h1>
 <a href="{% url 'crear-tarea' %}">Crear Nueva Tarea</a>
 
@@ -8,7 +16,7 @@
         <th></th>
     </tr>
     
-    {% for tarea in object_list %}
+    {% for tarea in tareas %}
     
     <tr>
         <td>{{tarea.titulo}}</td>
