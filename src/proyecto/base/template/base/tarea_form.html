@@ -1,9 +1,19 @@
-<h1>Formulario de Tareas</h1>
-<a href="{% url 'tareas' %}">Volver</a>
+{% extends 'base/principal.html' %}
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
+{% block content %}
 
-    <input type="submit" value="Enviar">
-</form>
+<div class="barra_superior">
+    <a href="{% url 'tareas' %}">&#x1F860; Volver</a>
+</div>
+
+<div class="cuerpo-tarjeta">
+    <h1 style="justify-content:center; display:flex; margin: 0 auto;">Tarea</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+    
+        <input class="boton" type="submit" value="Enviar">
+    </form>
+</div>
+
+{% endblock content %}  
